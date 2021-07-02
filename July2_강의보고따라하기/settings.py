@@ -64,7 +64,7 @@ ROOT_URLCONF = 'July2_강의보고따라하기.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR / 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

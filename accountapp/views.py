@@ -5,4 +5,4 @@ from django.shortcuts import render
 
 
 def CODE_SQUARE(request):
-    return HttpResponse('Hi, CODE SQUARE!')
+    return render(request, 'base.html')
