@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="ko">
+
+{% include 'head.html'%}
+
 <body>
-    <h1>HI, CODE SQUARE!</h1>
+    {% include 'header.html'%}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer.html'%}
 </body>
 </html>

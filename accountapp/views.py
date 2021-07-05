@@ -5,4 +5,4 @@ from django.shortcuts import render
 
 
 def CODE_SQUARE(request):
-    return render(request, 'base.html')
+    return render(request, 'accountapp/CODE_SQUARE.html')
