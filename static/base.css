@@ -1,0 +1,16 @@
+.codesquare_header_logo {
+    margin : 2rem 0;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.codesquare_header_button {
+    margin-bottom: 2rem;
+}
+
+.codesquare_footer_logo {
+    margin: 1.5rem 0; font-family: 'Chakra Petch', sans-serif;
+}
+
+.codesquare_footer_button {
+    margin-top: 1.5rem; font-family: 'Chakra Petch', sans-serif;
+}
