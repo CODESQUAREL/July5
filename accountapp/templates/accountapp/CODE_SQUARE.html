@@ -13,14 +13,16 @@
         }
     </style>
 
-    <div style="height: 20rem; background-color: #ECECEC; border-radius: 1rem; margin: 2rem; box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.23); overflow: scroll">
+    <div style="margin: 2rem; text-align: center">
         <h1>
             WELCOME.
         </h1>
-    <div class = "testing" style="height: 48px; width: 48px">px</div>
-    <div class = "testing" style="height: 3rem; width: 3rem">rem</div>
-    <div class = "testing" style="height: 3em; width: 3em">em</div>
-    <div class = "testing" style="height: 30%; width: 30%">%</div>
+        <form action = "/account/CODE_SQUARE/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger rounded-pill px-4">
+        </form>
+
+        <h3>{{ text }}</h3>
 
     </div>
 

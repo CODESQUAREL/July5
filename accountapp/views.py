@@ -5,4 +5,9 @@ from django.shortcuts import render
 
 
 def CODE_SQUARE(request):
-    return render(request, 'accountapp/CODE_SQUARE.html')
+    if request.method == "POST":
+        return render(request, 'accountapp/CODE_SQUARE.html',
+                      context = {'text': 'POST METHOD!'})
+    else:
+        return render(request, 'accountapp/CODE_SQUARE.html',
+                      context = {'text': 'POST METHOD!'})
