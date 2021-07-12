@@ -15,10 +15,11 @@
 
     <div style="margin: 2rem; text-align: center">
         <h1>
-            WELCOME.
+            WELCOME
         </h1>
         <form action = "/account/CODE_SQUARE/" method="post">
             {% csrf_token %}
+            <input type="text" name="input_text">
             <input type="submit" class="btn btn-danger rounded-pill px-4">
         </form>
 
