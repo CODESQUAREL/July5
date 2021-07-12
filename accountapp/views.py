@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from django.urls import reverse
+
 from accountapp.models import CODE_SQUARE
 
 
@@ -16,8 +18,7 @@ def code_square(request):
 
         code_square_list = CODE_SQUARE.objects.all()
 
-        return render(request, 'accountapp/CODE_SQUARE.html',
-                      context = {'code_square_list': code_square_list})
+        return HttpResponseRedirect(reverse('accountapp:CODE_SQUARE'))
     else:
         code_square_list = CODE_SQUARE.objects.all()
         return render(request, 'accountapp/CODE_SQUARE.html',

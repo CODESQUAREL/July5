@@ -22,9 +22,11 @@
             <input type="text" name="input_text">
             <input type="submit" class="btn btn-danger rounded-pill px-4">
         </form>
+
         {% for code_square in code_square_list %}
             <h3>{{ code_square.text }}</h3>
         {% endfor %}
+
     </div>
 
 {%  endblock %}
