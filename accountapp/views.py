@@ -14,8 +14,11 @@ def code_square(request):
         new_code_square.text = temp
         new_code_square.save()
 
+        code_square_list = CODE_SQUARE.objects.all()
+
         return render(request, 'accountapp/CODE_SQUARE.html',
-                      context = {'new_code_square': new_code_square})
+                      context = {'code_square_list': code_square_list})
     else:
+        code_square_list = CODE_SQUARE.objects.all()
         return render(request, 'accountapp/CODE_SQUARE.html',
-                      context = {'text': 'GET METHOD!'})
+                      context = {'code_square_list': code_square_list})
