@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
 from accountapp.models import CODE_SQUARE
@@ -35,6 +35,5 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
 # 회원가입 로직 끝
-
-# 라우팅 : 어떤 주소로 접근해야 회원가입 페이지로 갈지를 작성해줘야함.
+# 라우팅 : 어떤 주소로 접근해야 회원가입 페이지로 갈지를 작성해줘야함. accountapp/urls.py에 path구문 작성함
 
