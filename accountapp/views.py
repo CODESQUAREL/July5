@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import CODE_SQUARE
 
@@ -37,3 +37,11 @@ class AccountCreateView(CreateView):
 # 회원가입 로직 끝
 # 라우팅 : 어떤 주소로 접근해야 회원가입 페이지로 갈지를 작성해줘야함. accountapp/urls.py에 path구문 작성함
 
+# ---------------------------------------
+
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'accountapp/detail.html'
+
+# 이거 작성하고 urls 에서 라우팅하는 것을 꼭 작성해줘야함
