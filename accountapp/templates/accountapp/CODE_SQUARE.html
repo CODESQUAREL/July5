@@ -20,7 +20,7 @@
         <form action = "/account/CODE_SQUARE/" method="post">
             {% csrf_token %}
             <input type="text" name="input_text">
-            <input type="submit" class="btn btn-danger rounded-pill px-4">
+            <input type="submit" class="btn btn-outline-danger rounded-pill col-1 mt-3">
         </form>
 
         {% for code_square in code_square_list %}
