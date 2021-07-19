@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from accountapp.models import CODE_SQUARE
 
@@ -45,3 +45,10 @@ class AccountDetailView(DetailView):
     template_name = 'accountapp/detail.html'
 
 # 이거 작성하고 urls 에서 라우팅하는 것을 꼭 작성해줘야함
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = UserCreationForm
+    context_object_name = 'target_user'
+    success_url = reverse_lazy('accountapp:CODE_SQUARE')
+    template_name = 'accountapp/update.html'
