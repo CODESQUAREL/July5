@@ -12,21 +12,24 @@ from accountapp.models import CODE_SQUARE
 
 
 def code_square(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        if request.method == "POST":
 
-        temp = request.POST.get('input_text')
+            temp = request.POST.get('input_text')
 
-        new_code_square = CODE_SQUARE()
-        new_code_square.text = temp
-        new_code_square.save()
+            new_code_square = CODE_SQUARE()
+            new_code_square.text = temp
+            new_code_square.save()
 
-        code_square_list = CODE_SQUARE.objects.all()
+            code_square_list = CODE_SQUARE.objects.all()
 
-        return HttpResponseRedirect(reverse('accountapp:CODE_SQUARE'))
+            return HttpResponseRedirect(reverse('accountapp:CODE_SQUARE'))
+        else:
+            code_square_list = CODE_SQUARE.objects.all()
+            return render(request, 'accountapp/CODE_SQUARE.html',
+                          context = {'code_square_list': code_square_list})
     else:
-        code_square_list = CODE_SQUARE.objects.all()
-        return render(request, 'accountapp/CODE_SQUARE.html',
-                      context = {'code_square_list': code_square_list})
+        return HttpResponseRedirect(reverse('accountapp:login'))
 
 
 class AccountCreateView(CreateView):
@@ -54,6 +57,18 @@ class AccountUpdateView(UpdateView):
     success_url = reverse_lazy('accountapp:CODE_SQUARE')
     template_name = 'accountapp/update.html'
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
 
 
 class AccountDeleteView(DeleteView):
@@ -61,3 +76,16 @@ class AccountDeleteView(DeleteView):
     context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:CODE_SQUARE')
     template_name = 'accountapp/delete.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
