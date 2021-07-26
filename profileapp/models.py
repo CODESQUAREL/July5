@@ -18,3 +18,5 @@ class Profile(models.Model):
 #터미널에서 pip install pillow를 해줬고
 #python manage.py makemigrations 를 입력하면 폴더를 생성해주고
 #python manage.py migrate 를 입려해줘야한다.
+
+#view를 작성하기 전에 Form을 작성해보자.
