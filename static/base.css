@@ -17,14 +17,14 @@
 }
 
 .mw-500 {
-    max-width: 500px;
+    max-width: 700px;
     padding: 1rem 1.5rem;
 }
 
 .profile_image {
-    height: 20rem;
-    width: 20rem;
-    border-radius: 10rem;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 30rem;
     object-fit: cover;
 }
 
