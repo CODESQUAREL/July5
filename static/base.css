@@ -31,3 +31,16 @@
 .NNS_B {
     font_family: "NanumSquareB", cursive;
 }
+
+.round_button {
+    color:black;
+    text-decoration: none;
+    box-shadow: 0 0 3px black;
+    /*box-shadow: 0 0 3px rgba(255, 0, 0, 0.8);*/
+    border-radius: 20rem;
+    padding: 0.3rem;
+}
+
+.round_button:hover {
+    color: red;
+}

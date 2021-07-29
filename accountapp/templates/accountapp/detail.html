@@ -11,8 +11,10 @@
                 <h2 class="NNS_B">
                     {{  target_user.profile.nickname }}
                         {% if target_user == user %}
-                            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                            class="material-icons round_button">
                                 edit
+{#                                적용하고자 하는 아이콘의 이름을 여기에 적어주면 된다#}
                             </a>
                         {% endif %}
                 </h2>
