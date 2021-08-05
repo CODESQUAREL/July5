@@ -7,11 +7,12 @@
 
         .container div {
           width: 280px;
-          background-color: antiquewhite;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 1rem;
+            flex-direction: column;
+            box-shadow: 0 0 .5rem darkgray;
         }
 
         .container img {
@@ -22,17 +23,17 @@
 
 
     <div class="container my-4">
-      <div class="item1"><img src="https://picsum.photos/200/300" alt=""></div>
-      <div class="item2"><img src="https://picsum.photos/200/260" alt=""></div>
-      <div class="item3"><img src="https://picsum.photos/200/130" alt=""></div>
-      <div class="item4"><img src="https://picsum.photos/200/160" alt=""></div>
-      <div class="item5"><img src="https://picsum.photos/200/500" alt=""></div>
-      <div class="item6"><img src="https://picsum.photos/200/233" alt=""></div>
-      <div class="item7"><img src="https://picsum.photos/200/234" alt=""></div>
-      <div class="item8"><img src="https://picsum.photos/200/132" alt=""></div>
-      <div class="item9"><img src="https://picsum.photos/200/300" alt=""></div>
-      <div class="item1"><img src="https://picsum.photos/200/125" alt=""></div>
-      <div class="item1"><img src="https://picsum.photos/200/341" alt=""></div>
+
+        {% for article in article_list %}
+
+            <div>
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
+                </a>
+                <span class="NNS_B m-2">{{ article.title }}</span>
+            </div>
+
+        {% endfor %}
 
     </div>
 
