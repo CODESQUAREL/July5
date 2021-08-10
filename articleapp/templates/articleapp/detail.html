@@ -48,22 +48,30 @@
                         <span>
                             <img src="{{ comment.writer.profile.image.url }}"
                                         style="height: 2.5rem; width: 2.5rem; border-radius: 10rem; alt="">
-{#                            <img src="{{ comment.writer.profile.image.url }}"#}
-{#                                 style="height: 3rem; width: 3rem; border-radius: 20rem;>#}
                         </span>
                         <span style="font-size: 1.4rem;"
-                                    class="NNS_B">
+                              class="NNS_B">
                             {{ comment.writer.profile.nickname }}
                         </span>
                         <span>{{ comment.created_at }}</span>
                     </div>
                     <div>
-                        <p>{{ comment.content }}</p>
+                        <p>
+                            {{ comment.content }}
+                        </p>
                     </div>
+                    {% if comment.writer == user %}
+                    <div style="text-align: right">
+                        <a href="{% url 'commentapp:delete' pk=comment.pk %}"
+                           class="btn btn-danger rounded-pill px-5">
+                            Delete
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
 
-
             {% endfor %}
+
             {% include 'commentapp/create.html' %}
         </div>
     </div>
