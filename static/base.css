@@ -55,3 +55,12 @@
     text-align: left;
     font-size: 1.1rem;
 }
+
+.comment_box {
+    text-align: left;
+    border: solid;
+    border-color: darkgrey;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+}
