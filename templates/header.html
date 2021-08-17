@@ -8,8 +8,15 @@
         <h1>CODE SQUARE</h1>
     </div>
     <div class = "codesquare_header_button">
-        <span>김다엘 / </span>
-        <span>25 / </span>
+        <span>
+            <a href="{% url 'articleapp:list' %}">
+                ARTICLE /
+            </a></span>
+        <span>
+            <a href="{% url 'projectapp:list' %}">
+                PROJECT /
+            </a>
+        </span>
         {% if not user.is_authenticated %}
         <span>
             <a href="{% url 'accountapp:login' %}">
