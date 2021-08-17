@@ -73,8 +73,10 @@
 }
 
 .project_image {
-    height: 50rem;
-    width: 50rem;
-    border-radius: 1rem;
-    object-fit: cover;
+    /*height: 90%;*/
+    /*width: 90%;*/
+    /*border-radius: 1rem;*/
+    /*!*object-fit: cover;*!*/
+    max-width: 700px;
+    padding: 1rem 1.5rem;
 }

@@ -10,33 +10,34 @@
     <div class = "codesquare_header_button">
         <span>
             <a href="{% url 'articleapp:list' %}">
-                ARTICLE /
-            </a></span>
+                모아보기 /
+            </a>
+        </span>
         <span>
             <a href="{% url 'projectapp:list' %}">
-                PROJECT /
+                게시글 /
             </a>
         </span>
         {% if not user.is_authenticated %}
         <span>
             <a href="{% url 'accountapp:login' %}">
-                LOGIN /
+                로그인 /
             </a>
         </span>
         <span>
             <a href = "{% url 'accountapp:create' %}">
-                SIGN UP
+                회원가입
             </a>
         </span>
         {% else %}
         <span>
             <a href = "{% url 'accountapp:detail' pk=user.pk %}">
-                MY PAGE /
+                내 정보 /
             </a>
         </span>
         <span>
             <a href = "{% url 'accountapp:logout' %}">
-                LOGOUT
+                로그아웃
             </a>
         </span>
         {% endif %}
