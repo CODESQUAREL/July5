@@ -8,10 +8,13 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorator import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from accountapp.models import CODE_SQUARE
+from articleapp.models import Article
+
 
 @login_required#(login_url:reverse_lazy('accountapp:login'))
 def code_square(request):
@@ -44,10 +47,16 @@ class AccountCreateView(CreateView):
 
 # ---------------------------------------
 
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
+
+    paginate_by = 20
+
+    def get_context_data(self, **kwargs):
+        article_list = Article.objects.filter(writer=self.object) # self.object = target_user
+        return super().get_context_data(object_list=article_list, **kwargs)
 
 # 이거 작성하고 urls 에서 라우팅하는 것을 꼭 작성해줘야함
 
