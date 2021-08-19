@@ -8,3 +8,6 @@ class Project(models.Model):
     image = models.ImageField(upload_to='project/', null=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self): #Project 클래스를 불러올 때
+        return f'{self.name}'
