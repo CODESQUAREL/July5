@@ -7,16 +7,25 @@
 
 <body style="font-family: 'NanumSquareR'">
 
-    {% include 'header.html'%}
+{% include 'header.html'%}
 
 <hr>
 
-    {% block content %}
-    {% endblock %}
+{# 메세지 출력 #}
+{% for message in messages %}
+    <div class="text-center">
+        <div class="btn btn-success rounded-pill px-5">
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
+
+{% block content %}
+{% endblock %}
 
 <hr>
 
-    {% include 'footer.html'%}
+{% include 'footer.html'%}
 
 
 </body>
