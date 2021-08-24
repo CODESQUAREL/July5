@@ -16,3 +16,5 @@ class Article(models.Model):
     content = models.TextField(null=True) #내용 안 쓸 수도 있지
 
     created_at = models.DateField(auto_now_add=True, null=True) #auto_now_add=True: DB내에서도 시간을 알아서 작성해주는 것
+
+    like = models.IntegerField(default=0)
