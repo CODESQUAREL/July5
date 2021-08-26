@@ -12,34 +12,13 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorator import account_ownership_required
 from accountapp.forms import AccountCreationForm
-from accountapp.models import CODE_SQUARE
 from articleapp.models import Article
-
-
-@login_required#(login_url:reverse_lazy('accountapp:login'))
-def code_square(request):
-    if request.method == "POST":
-
-        temp = request.POST.get('input_text')
-
-        new_code_square = CODE_SQUARE()
-        new_code_square.text = temp
-        new_code_square.save()
-
-        # code_square_list = CODE_SQUARE.objects.all()
-
-        return HttpResponseRedirect(reverse('accountapp:CODE_SQUARE'))
-    else:
-        code_square_list = CODE_SQUARE.objects.all()
-        return render(request, 'accountapp/CODE_SQUARE.html',
-                      context = {'code_square_list': code_square_list})
-
 
 
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:CODE_SQUARE')
+    success_url = reverse_lazy('articleapp:list')
     template_name = 'accountapp/create.html'
 
 # 회원가입 로직 끝
@@ -74,36 +53,11 @@ class AccountUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
-    # def get(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated and self.get_object() == request.user: #self.get_object는 pk(target_user)로 이해한다.
-    #         return super().get(request, *args, **kwargs)
-    #     else:
-    #         return HttpResponseForbidden()
-    #
-    # def post(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated and self.get_object() == request.user:
-    #         return super().post(request, *args, **kwargs)
-    #     else:
-    #         return HttpResponseForbidden()
-
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:CODE_SQUARE')
+    success_url = reverse_lazy('articleapp:list')
     template_name = 'accountapp/delete.html'
-
-    # def get(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated and self.get_object() == request.user:
-    #         return super().get(request, *args, **kwargs)
-    #     else:
-    #         return HttpResponseForbidden()
-    #
-    # def post(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated and self.get_object() == request.user:
-    #         return super().post(request, *args, **kwargs)
-    #     else:
-    #         return HttpResponseForbidden()
-    #
