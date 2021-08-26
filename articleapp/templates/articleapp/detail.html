@@ -17,11 +17,10 @@
                 <span style="vertical-align: middle; font-size: 1.2rem">
                     {{ target_article.like }}
                 </span>
-                <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
-                    class="material-icons"
+                <span class="material-icons"
                     style="vertical-align: middle; font-size: 1.4rem; color: #c3c3c3">
                     comment
-                </a>
+                </span>
                 <span style="vertical-align: middle; font-size: 1.2rem">
                     {{ target_article.comment.count }}
                 </span>
