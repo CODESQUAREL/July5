@@ -5,44 +5,48 @@
 
 <div style = 'text-align: center';>
     <div class = "codesquare_header_logo">
-        <h1>CODE SQUARE</h1>
+        <h1>
+            <a href="{% url 'home' %}">
+                CODE SQUARE
+            </a>
+        </h1>
     </div>
     <div class = "codesquare_header_button">
-        <span>
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}">
-                모아보기 /
+                모아보기
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}">
-                게시판 /
+                게시판
             </a>
         </span>
         {% if user.is_authenticated %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'subscribeapp:list' %}">
-                구독 /
+                구독
             </a>
         </span>
         {% endif %}
         {% if not user.is_authenticated %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:login' %}">
-                로그인 /
+                로그인
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href = "{% url 'accountapp:create' %}">
                 회원가입
             </a>
         </span>
         {% else %}
-        <span>
+        <span class="mx-2">
             <a href = "{% url 'accountapp:detail' pk=user.pk %}">
-                내 정보 /
+                내 정보
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href = "{% url 'accountapp:logout' %}">
                 로그아웃
             </a>
