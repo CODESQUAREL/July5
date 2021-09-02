@@ -83,3 +83,12 @@ db.sqlite3
 .idea
 
 __pycache__/
+
+media/
+
+staticfiles/
+
+CODE_SQUARE.pem
+
+CODE_SQUARE_gcp
+CODE_SQUARE_gcp.pub
