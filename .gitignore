@@ -92,3 +92,11 @@ CODE_SQUARE.pem
 
 code_square_gcp
 code_square_gcp.pub
+
+code_square_temp
+code_square_temp.pub
+
+Dockerfile
+Dockerfile2
+
+nginx.conf

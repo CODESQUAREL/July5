@@ -1,0 +1,14 @@
+version: "3.7"
+# docker에서 인식할 수 있는 가장 최신버전인 3.7
+
+services:
+  django:
+    image: django1:latest
+    ports:
+    - 8080:8000
+#
+#    networks:
+#    volumes:
+#
+#  nginx:
+#    image:
