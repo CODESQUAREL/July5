@@ -8,13 +8,13 @@ services:
       - 80:80
     networks:
       - code_square_network
-    volume:
+    volumes:
       - /home/ubuntu/nignx.conf:/etc/nginx/nginx.conf
       - code_square_static:/data/static/
       - code_square_media:/data/media/
 
   django:
-    image: django1
+    image: django1:latest
     networks:
       - code_square_network
     volumes:
