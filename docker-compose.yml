@@ -1,14 +1,30 @@
 version: "3.7"
-# docker에서 인식할 수 있는 가장 최신버전인 3.7
 
 services:
-  django:
-    image: django1:latest
+
+  nginx:
+    image: nginx:1.19.5
     ports:
-    - 8080:8000
-#
-#    networks:
-#    volumes:
-#
-#  nginx:
-#    image:
+      - 80:80
+    networks:
+      - code_square_network
+    volume:
+      - /home/ubuntu/nignx.conf:/etc/nginx/nginx.conf
+      - code_square_static:/data/static/
+      - code_square_media:/data/media/
+
+  django:
+    image: django1
+    networks:
+      - code_square_network
+    volumes:
+      - code_square_static:/home/July2_강의보고따라하기/staticfiles/
+      - code_square_media:/home/July2_강의보고따라하기/media/
+
+
+networks:
+  code_square_network:
+
+volumes:
+  code_square_static:
+  code_square_media:
