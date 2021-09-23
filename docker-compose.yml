@@ -9,17 +9,30 @@ services:
     networks:
       - code_square_network
     volumes:
-      - /home/ubuntu/nignx.conf:/etc/nginx/nginx.conf
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - code_square_static:/data/static/
       - code_square_media:/data/media/
 
   django:
-    image: django_collect3
+    image: django_deploy4
     networks:
       - code_square_network
     volumes:
-      - code_square_static:/home/July2_강의보고따라하기/staticfiles/
-      - code_square_media:/home/July2_강의보고따라하기/media/
+      - code_square_static:/home/July5/staticfiles/
+      - code_square_media:/home/July5/media/
+
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - code_square_network
+    volumes:
+      - code_square_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 
 networks:
@@ -28,3 +41,4 @@ networks:
 volumes:
   code_square_static:
   code_square_media:
+  code_square_mariadb:
