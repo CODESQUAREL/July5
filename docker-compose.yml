@@ -14,7 +14,7 @@ services:
       - code_square_media:/data/media/
 
   django:
-    image: django1:latest
+    image: django_collect3
     networks:
       - code_square_network
     volumes:
