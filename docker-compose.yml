@@ -20,6 +20,8 @@ services:
     volumes:
       - code_square_static:/home/July5/staticfiles/
       - code_square_media:/home/July5/media/
+    secrets:
+      - DJANGO_SECRET_KEY
 
 
   mariadb:
@@ -42,3 +44,7 @@ volumes:
   code_square_static:
   code_square_media:
   code_square_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
