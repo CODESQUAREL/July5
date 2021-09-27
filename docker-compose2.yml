@@ -9,7 +9,7 @@ services:
     networks:
       - code_square_network
     volumes:
-      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
+      - /home/threatsquare/nginx.conf:/etc/nginx/nginx.conf
       - code_square_static:/data/static/
       - code_square_media:/data/media/
 
