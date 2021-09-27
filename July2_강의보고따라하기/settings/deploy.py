@@ -1,7 +1,6 @@
 from .base import *
 
 def read_secret(secret_name):
-
     file = open('/run/secrets/' + secret_name)
     secret = file.read()
     secret = secret.lstrip().rstrip()
@@ -29,7 +28,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
         'USER': read_secret('MARIADB_USER'),
-        'PASSWORD': read_secret('password1234'),
+        'PASSWORD': read_secret('MARIADB_PASSWORD'),
         'HOST': 'mariadb',
         'PORT': '3306',
     }
