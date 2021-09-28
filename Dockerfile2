@@ -1,0 +1,37 @@
+FROM python:3.9.0
+# python3.9.0 버전을 베이스 이미지로 사용하겠다
+
+WORKDIR /home/
+# 어디에서 명령어를 칠 것이냐
+
+RUN git clone https://github.com/CODESQUAREL/July5.git
+# 내가 github에 올린 Code를 Clone 하겠다
+
+
+# Home 경로 안에 clone을 했기 때문에 폴더가 하나 더 생긴다.
+WORKDIR /home/July5/
+# 그래서 이 코드 안으로 다시 들어가주겠다
+
+# ----------------------------------------------------------------------
+RUN echo "SECRET_KEY=django-insecure-6hb=)#ll+9f2n^ywug5l+%^wqiznrfgr(md!cys-i+4n$ognt%" > .env
+# 개발할 때는 이렇게 하면 안 됨
+#----------------------------------------------------------------------
+
+RUN pip install -r requirements.txt
+# 개발 환경에서 설치된 라이브러리들을 설치해줄 것이다.
+
+RUN python manage.py migrate
+
+EXPOSE 8000
+# Django 에서는 8000 포트가 Default다
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# 각각의 문자로 넣어지는 것은 이렇게 구분을 해줘야 한다더라.
+
+CMD ["gunicorn", "July2_강의보고따라하기.wsgi", "--bind", "0.0.0.0:8000"]
+#gunicorn 명령어로 바꿔줌 runserver를 없애고
+
+
+# 위 까지 했던 걸로는 설치가 안 됨
+# .env 파일에 secret key가 있고 .env는 github에 올라가지 않았기 떄문에 실행이 안 되는 것임.
+# 그래서 RUN echo 를 하여 시크릿 키를 .env파일로 저장해준다. 라는 것을 함
