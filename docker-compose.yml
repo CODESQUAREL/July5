@@ -16,9 +16,11 @@ services:
       - code_square_static:/data/static/
       - code_square_media:/data/media/
       - code_square_log:/var/log/nginx/
+    secrets:
+      - NGINX_AUTH
 
   django:
-    image: django_deploy5
+    image: django_deploy:6
     networks:
       - code_square_network
     volumes:
@@ -64,4 +66,6 @@ secrets:
   MARIADB_USER:
     external: true
   MARIADB_PASSWORD:
+    external: true
+  NGINX_AUTH:
     external: true
