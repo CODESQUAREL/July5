@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "asdfasasadsdfsdff"
+RUN echo "asdffdfsdff"
 
 RUN git clone https://github.com/CODESQUAREL/July5.git
 
