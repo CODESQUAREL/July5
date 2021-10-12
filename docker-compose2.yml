@@ -19,6 +19,15 @@ services:
     secrets:
       - NGINX_AUTH
 
+  goaccess:
+    image: allinurl/goaccess:1.5.1
+    ports:
+      - 7980:7890
+    volumes:
+      - code_square_log:/var/log/nginx/
+    command: /var/log/nginx/code_access.log -o /var/log/nginx/report.html --real-time-html --log-format COMBINED
+
+
   django:
     image: django_deploy5
     networks:
